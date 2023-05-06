@@ -1,0 +1,37 @@
+zigcheck.devices package
+========================
+
+Submodules
+----------
+
+zigcheck.devices.cc2531 module
+------------------------------
+
+.. automodule:: zigcheck.devices.cc2531
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+zigcheck.devices.device module
+------------------------------
+
+.. automodule:: zigcheck.devices.device
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+zigcheck.devices.offline module
+-------------------------------
+
+.. automodule:: zigcheck.devices.offline
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+Module contents
+---------------
+
+.. automodule:: zigcheck.devices
+   :members:
+   :undoc-members:
+   :show-inheritance:

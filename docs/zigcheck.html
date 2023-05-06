@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>zigcheck package &mdash; ZigCheck 0.1 documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/sphinx_highlight.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="zigcheck.devices package" href="zigcheck.devices.html" />
+    <link rel="prev" title="app" href="modules.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            ZigCheck
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="modules.html">app</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">zigcheck package</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#subpackages">Subpackages</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="zigcheck.devices.html">zigcheck.devices package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="zigcheck.testers.html">zigcheck.testers package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="zigcheck.tools.html">zigcheck.tools package</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#submodules">Submodules</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-zigcheck.main">zigcheck.main module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#zigcheck.main.ascii_art"><code class="docutils literal notranslate"><span class="pre">ascii_art()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#zigcheck.main.get_config_file"><code class="docutils literal notranslate"><span class="pre">get_config_file()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#zigcheck.main.version"><code class="docutils literal notranslate"><span class="pre">version()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#module-zigcheck.testsuite">zigcheck.testsuite module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#zigcheck.testsuite.TestSuite"><code class="docutils literal notranslate"><span class="pre">TestSuite</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#module-zigcheck">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">ZigCheck</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="modules.html">app</a></li>
+      <li class="breadcrumb-item active">zigcheck package</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/zigcheck.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="zigcheck-package">
+<h1>zigcheck package<a class="headerlink" href="#zigcheck-package" title="Permalink to this heading"></a></h1>
+<section id="subpackages">
+<h2>Subpackages<a class="headerlink" href="#subpackages" title="Permalink to this heading"></a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="zigcheck.devices.html">zigcheck.devices package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="zigcheck.devices.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="zigcheck.devices.html#module-zigcheck.devices.cc2531">zigcheck.devices.cc2531 module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="zigcheck.devices.html#zigcheck.devices.cc2531.CC2531"><code class="docutils literal notranslate"><span class="pre">CC2531</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="zigcheck.devices.html#zigcheck.devices.cc2531.CC2531.ERROR_MSG"><code class="docutils literal notranslate"><span class="pre">CC2531.ERROR_MSG</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="zigcheck.devices.html#zigcheck.devices.cc2531.CC2531.start"><code class="docutils literal notranslate"><span class="pre">CC2531.start()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="zigcheck.devices.html#zigcheck.devices.cc2531.CC2531.stop"><code class="docutils literal notranslate"><span class="pre">CC2531.stop()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="zigcheck.devices.html#module-zigcheck.devices.device">zigcheck.devices.device module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="zigcheck.devices.html#zigcheck.devices.device.Device"><code class="docutils literal notranslate"><span class="pre">Device</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="zigcheck.devices.html#zigcheck.devices.device.Device.start"><code class="docutils literal notranslate"><span class="pre">Device.start()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="zigcheck.devices.html#zigcheck.devices.device.Device.stop"><code class="docutils literal notranslate"><span class="pre">Device.stop()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="zigcheck.devices.html#module-zigcheck.devices.offline">zigcheck.devices.offline module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="zigcheck.devices.html#zigcheck.devices.offline.Offline"><code class="docutils literal notranslate"><span class="pre">Offline</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="zigcheck.devices.html#zigcheck.devices.offline.Offline.start"><code class="docutils literal notranslate"><span class="pre">Offline.start()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="zigcheck.devices.html#zigcheck.devices.offline.Offline.stop"><code class="docutils literal notranslate"><span class="pre">Offline.stop()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="zigcheck.devices.html#module-zigcheck.devices">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="zigcheck.testers.html">zigcheck.testers package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="zigcheck.testers.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="zigcheck.testers.html#module-zigcheck.testers.keytester">zigcheck.testers.keytester module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="zigcheck.testers.html#zigcheck.testers.keytester.KeyTester"><code class="docutils literal notranslate"><span class="pre">KeyTester</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="zigcheck.testers.html#zigcheck.testers.keytester.KeyTester.LINK_KEYS"><code class="docutils literal notranslate"><span class="pre">KeyTester.LINK_KEYS</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="zigcheck.testers.html#zigcheck.testers.keytester.KeyTester.NWK_KEYS"><code class="docutils literal notranslate"><span class="pre">KeyTester.NWK_KEYS</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="zigcheck.testers.html#zigcheck.testers.keytester.KeyTester.print_report"><code class="docutils literal notranslate"><span class="pre">KeyTester.print_report()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="zigcheck.testers.html#zigcheck.testers.keytester.KeyTester.recv"><code class="docutils literal notranslate"><span class="pre">KeyTester.recv()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="zigcheck.testers.html#module-zigcheck.testers.macsecurity">zigcheck.testers.macsecurity module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="zigcheck.testers.html#zigcheck.testers.macsecurity.MacSecurity"><code class="docutils literal notranslate"><span class="pre">MacSecurity</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="zigcheck.testers.html#zigcheck.testers.macsecurity.MacSecurity.STATUS_THRESHOLD"><code class="docutils literal notranslate"><span class="pre">MacSecurity.STATUS_THRESHOLD</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="zigcheck.testers.html#zigcheck.testers.macsecurity.MacSecurity.print_report"><code class="docutils literal notranslate"><span class="pre">MacSecurity.print_report()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="zigcheck.testers.html#zigcheck.testers.macsecurity.MacSecurity.recv"><code class="docutils literal notranslate"><span class="pre">MacSecurity.recv()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="zigcheck.testers.html#module-zigcheck.testers.noncereuse">zigcheck.testers.noncereuse module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="zigcheck.testers.html#zigcheck.testers.noncereuse.NonceReuse"><code class="docutils literal notranslate"><span class="pre">NonceReuse</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="zigcheck.testers.html#zigcheck.testers.noncereuse.NonceReuse.print_report"><code class="docutils literal notranslate"><span class="pre">NonceReuse.print_report()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="zigcheck.testers.html#zigcheck.testers.noncereuse.NonceReuse.recv"><code class="docutils literal notranslate"><span class="pre">NonceReuse.recv()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="zigcheck.testers.html#module-zigcheck.testers.printer">zigcheck.testers.printer module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="zigcheck.testers.html#zigcheck.testers.printer.Printer"><code class="docutils literal notranslate"><span class="pre">Printer</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="zigcheck.testers.html#zigcheck.testers.printer.Printer.print_report"><code class="docutils literal notranslate"><span class="pre">Printer.print_report()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="zigcheck.testers.html#zigcheck.testers.printer.Printer.recv"><code class="docutils literal notranslate"><span class="pre">Printer.recv()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="zigcheck.testers.html#module-zigcheck.testers.switchkey">zigcheck.testers.switchkey module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="zigcheck.testers.html#zigcheck.testers.switchkey.SwitchKey"><code class="docutils literal notranslate"><span class="pre">SwitchKey</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="zigcheck.testers.html#zigcheck.testers.switchkey.SwitchKey.DAYS_IN_MONTH"><code class="docutils literal notranslate"><span class="pre">SwitchKey.DAYS_IN_MONTH</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="zigcheck.testers.html#zigcheck.testers.switchkey.SwitchKey.DAYS_IN_YEAR"><code class="docutils literal notranslate"><span class="pre">SwitchKey.DAYS_IN_YEAR</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="zigcheck.testers.html#zigcheck.testers.switchkey.SwitchKey.print_report"><code class="docutils literal notranslate"><span class="pre">SwitchKey.print_report()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="zigcheck.testers.html#zigcheck.testers.switchkey.SwitchKey.recv"><code class="docutils literal notranslate"><span class="pre">SwitchKey.recv()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="zigcheck.testers.html#module-zigcheck.testers.tester">zigcheck.testers.tester module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="zigcheck.testers.html#zigcheck.testers.tester.Tester"><code class="docutils literal notranslate"><span class="pre">Tester</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="zigcheck.testers.html#zigcheck.testers.tester.Tester.STATUS"><code class="docutils literal notranslate"><span class="pre">Tester.STATUS</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="zigcheck.testers.html#zigcheck.testers.tester.Tester.print_report"><code class="docutils literal notranslate"><span class="pre">Tester.print_report()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="zigcheck.testers.html#zigcheck.testers.tester.Tester.print_report_format"><code class="docutils literal notranslate"><span class="pre">Tester.print_report_format()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="zigcheck.testers.html#zigcheck.testers.tester.Tester.recv"><code class="docutils literal notranslate"><span class="pre">Tester.recv()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="zigcheck.testers.html#module-zigcheck.testers.transportkey">zigcheck.testers.transportkey module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="zigcheck.testers.html#zigcheck.testers.transportkey.TransportKey"><code class="docutils literal notranslate"><span class="pre">TransportKey</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="zigcheck.testers.html#zigcheck.testers.transportkey.TransportKey.WELL_KNOWN_LINK_KEY"><code class="docutils literal notranslate"><span class="pre">TransportKey.WELL_KNOWN_LINK_KEY</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="zigcheck.testers.html#zigcheck.testers.transportkey.TransportKey.print_report"><code class="docutils literal notranslate"><span class="pre">TransportKey.print_report()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="zigcheck.testers.html#zigcheck.testers.transportkey.TransportKey.recv"><code class="docutils literal notranslate"><span class="pre">TransportKey.recv()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="zigcheck.testers.html#module-zigcheck.testers">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="zigcheck.tools.html">zigcheck.tools package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="zigcheck.tools.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="zigcheck.tools.html#module-zigcheck.tools.configreader">zigcheck.tools.configreader module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="zigcheck.tools.html#zigcheck.tools.configreader.ConfigReader"><code class="docutils literal notranslate"><span class="pre">ConfigReader</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="zigcheck.tools.html#zigcheck.tools.configreader.ConfigReader.get"><code class="docutils literal notranslate"><span class="pre">ConfigReader.get()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="zigcheck.tools.html#zigcheck.tools.configreader.ConfigReader.read"><code class="docutils literal notranslate"><span class="pre">ConfigReader.read()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="zigcheck.tools.html#zigcheck.tools.configreader.ConfigReader.set"><code class="docutils literal notranslate"><span class="pre">ConfigReader.set()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="zigcheck.tools.html#module-zigcheck.tools.decrypter">zigcheck.tools.decrypter module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="zigcheck.tools.html#zigcheck.tools.decrypter.Decrypter"><code class="docutils literal notranslate"><span class="pre">Decrypter</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="zigcheck.tools.html#zigcheck.tools.decrypter.Decrypter.ENDIAN"><code class="docutils literal notranslate"><span class="pre">Decrypter.ENDIAN</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="zigcheck.tools.html#zigcheck.tools.decrypter.Decrypter.NWK_SECURITY_LEVELS"><code class="docutils literal notranslate"><span class="pre">Decrypter.NWK_SECURITY_LEVELS</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="zigcheck.tools.html#zigcheck.tools.decrypter.Decrypter.add_padding"><code class="docutils literal notranslate"><span class="pre">Decrypter.add_padding()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="zigcheck.tools.html#zigcheck.tools.decrypter.Decrypter.bytes_xor"><code class="docutils literal notranslate"><span class="pre">Decrypter.bytes_xor()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="zigcheck.tools.html#zigcheck.tools.decrypter.Decrypter.decrypt"><code class="docutils literal notranslate"><span class="pre">Decrypter.decrypt()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="zigcheck.tools.html#module-zigcheck.tools">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</section>
+<section id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this heading"></a></h2>
+</section>
+<section id="module-zigcheck.main">
+<span id="zigcheck-main-module"></span><h2>zigcheck.main module<a class="headerlink" href="#module-zigcheck.main" title="Permalink to this heading"></a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="zigcheck.main.ascii_art">
+<span class="sig-prename descclassname"><span class="pre">zigcheck.main.</span></span><span class="sig-name descname"><span class="pre">ascii_art</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/zigcheck/main.html#ascii_art"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#zigcheck.main.ascii_art" title="Permalink to this definition"></a></dt>
+<dd><p>Prints name of application in ascii art.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="zigcheck.main.get_config_file">
+<span class="sig-prename descclassname"><span class="pre">zigcheck.main.</span></span><span class="sig-name descname"><span class="pre">get_config_file</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/zigcheck/main.html#get_config_file"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#zigcheck.main.get_config_file" title="Permalink to this definition"></a></dt>
+<dd><dl class="simple">
+<dt>Returns:</dt><dd><p>Path of the configuration file</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="zigcheck.main.version">
+<span class="sig-prename descclassname"><span class="pre">zigcheck.main.</span></span><span class="sig-name descname"><span class="pre">version</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ctx</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">param</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/zigcheck/main.html#version"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#zigcheck.main.version" title="Permalink to this definition"></a></dt>
+<dd><p>Prints application version.</p>
+</dd></dl>
+
+</section>
+<section id="module-zigcheck.testsuite">
+<span id="zigcheck-testsuite-module"></span><h2>zigcheck.testsuite module<a class="headerlink" href="#module-zigcheck.testsuite" title="Permalink to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="zigcheck.testsuite.TestSuite">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">zigcheck.testsuite.</span></span><span class="sig-name descname"><span class="pre">TestSuite</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tests</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">printer</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">device</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pan_id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">config</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/zigcheck/testsuite.html#TestSuite"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#zigcheck.testsuite.TestSuite" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Represents testing environment.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="zigcheck.testsuite.TestSuite.AVAILABLE_DEVICES">
+<span class="sig-name descname"><span class="pre">AVAILABLE_DEVICES</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{'CC2531',</span> <span class="pre">'Offline'}</span></em><a class="headerlink" href="#zigcheck.testsuite.TestSuite.AVAILABLE_DEVICES" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="zigcheck.testsuite.TestSuite.AVAILABLE_TESTERS">
+<span class="sig-name descname"><span class="pre">AVAILABLE_TESTERS</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{'MAC_SECURITY':</span> <span class="pre">'MacSecurity',</span> <span class="pre">'NONCE_REUSE':</span> <span class="pre">'NonceReuse',</span> <span class="pre">'SWITCH_KEY':</span> <span class="pre">'SwitchKey',</span> <span class="pre">'TEST_KEY':</span> <span class="pre">'KeyTester',</span> <span class="pre">'TRANSPORT_KEY':</span> <span class="pre">'TransportKey'}</span></em><a class="headerlink" href="#zigcheck.testsuite.TestSuite.AVAILABLE_TESTERS" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="zigcheck.testsuite.TestSuite.handle_packet">
+<span class="sig-name descname"><span class="pre">handle_packet</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pkt</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/zigcheck/testsuite.html#TestSuite.handle_packet"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#zigcheck.testsuite.TestSuite.handle_packet" title="Permalink to this definition"></a></dt>
+<dd><p>Checks if packet is sent within the specified PAN and forwards it to all testers.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>pkt (Packet): packet captured by the device</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="zigcheck.testsuite.TestSuite.start">
+<span class="sig-name descname"><span class="pre">start</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/zigcheck/testsuite.html#TestSuite.start"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#zigcheck.testsuite.TestSuite.start" title="Permalink to this definition"></a></dt>
+<dd><p>Starts the testing process.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="zigcheck.testsuite.TestSuite.stop">
+<span class="sig-name descname"><span class="pre">stop</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/zigcheck/testsuite.html#TestSuite.stop"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#zigcheck.testsuite.TestSuite.stop" title="Permalink to this definition"></a></dt>
+<dd><p>Stops the testing process and prints report of all used testers.</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-zigcheck">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-zigcheck" title="Permalink to this heading"></a></h2>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="modules.html" class="btn btn-neutral float-left" title="app" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="zigcheck.devices.html" class="btn btn-neutral float-right" title="zigcheck.devices package" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, Tomáš Rosenbaum.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

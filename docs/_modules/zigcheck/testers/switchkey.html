@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>zigcheck.testers.switchkey &mdash; ZigCheck 0.1 documentation</title>
+      <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+        <script src="../../../_static/doctools.js"></script>
+        <script src="../../../_static/sphinx_highlight.js"></script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../../index.html" class="icon icon-home">
+            ZigCheck
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../modules.html">app</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">ZigCheck</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../index.html">Module code</a></li>
+      <li class="breadcrumb-item active">zigcheck.testers.switchkey</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Source code for zigcheck.testers.switchkey</h1><div class="highlight"><pre>
+<span></span><span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">datetime</span><span class="p">,</span> <span class="n">timedelta</span>
+
+<span class="kn">from</span> <span class="nn">scapy.layers.zigbee</span> <span class="kn">import</span> <span class="n">ZigbeeSecurityHeader</span><span class="p">,</span> <span class="n">ZigbeeAppCommandPayload</span><span class="p">,</span> <span class="n">ZigbeeNWK</span>
+
+<span class="kn">from</span> <span class="nn">zigcheck.testers.tester</span> <span class="kn">import</span> <span class="n">Tester</span>
+
+
+<div class="viewcode-block" id="SwitchKey"><a class="viewcode-back" href="../../../zigcheck.testers.html#zigcheck.testers.switchkey.SwitchKey">[docs]</a><span class="k">class</span> <span class="nc">SwitchKey</span><span class="p">(</span><span class="n">Tester</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Tests the correct use of the switch key command as per ZigBee specification.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">DAYS_IN_YEAR</span> <span class="o">=</span> <span class="mi">365</span>
+    <span class="n">DAYS_IN_MONTH</span> <span class="o">=</span> <span class="mi">30</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">config</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Initiates SwitchKey.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            config (ConfigReader): complete configuration</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">status</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">msg</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">start_time</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">switch_key_count</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">switch_key_last</span> <span class="o">=</span> <span class="kc">None</span>
+
+    <span class="k">def</span> <span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Returns:</span>
+<span class="sd">            Name of the tester used for printing final report.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="s1">&#39;SWITCH KEY&#39;</span>
+
+<div class="viewcode-block" id="SwitchKey.recv"><a class="viewcode-back" href="../../../zigcheck.testers.html#zigcheck.testers.switchkey.SwitchKey.recv">[docs]</a>    <span class="k">def</span> <span class="nf">recv</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">pkt</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Process incoming packet.</span>
+<span class="sd">        Determines whether the packet is as switch key command and checks its correct usage.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            pkt (Packet): packet to process</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="n">pkt</span><span class="o">.</span><span class="n">haslayer</span><span class="p">(</span><span class="n">ZigbeeSecurityHeader</span><span class="p">):</span>
+            <span class="n">frame_count</span> <span class="o">=</span> <span class="n">pkt</span><span class="o">.</span><span class="n">getlayer</span><span class="p">(</span><span class="n">ZigbeeSecurityHeader</span><span class="p">)</span><span class="o">.</span><span class="n">fc</span>
+            <span class="c1"># key should be switched once the frame counter exceeds 2^(31)</span>
+            <span class="k">if</span> <span class="n">frame_count</span> <span class="o">&gt;</span> <span class="mi">2</span> <span class="o">**</span> <span class="mi">31</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">status</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">STATUS</span><span class="p">[</span><span class="s1">&#39;BAD&#39;</span><span class="p">]</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">msg</span> <span class="o">+=</span> <span class="sa">f</span><span class="s1">&#39;A message was sent with a frame counter larger than 2^(31) and key was not switched. (frame count: </span><span class="si">{</span><span class="n">frame_count</span><span class="si">}</span><span class="s1">) &#39;</span>
+
+            <span class="k">if</span> <span class="n">pkt</span><span class="o">.</span><span class="n">haslayer</span><span class="p">(</span><span class="n">ZigbeeNWK</span><span class="p">):</span>
+                <span class="n">source</span> <span class="o">=</span> <span class="n">pkt</span><span class="o">.</span><span class="n">getlayer</span><span class="p">(</span><span class="n">ZigbeeNWK</span><span class="p">)</span><span class="o">.</span><span class="n">source</span>
+                <span class="c1"># key should be switched once the coordinator&#39;s outgoing frame count exceeds 2^(30)</span>
+                <span class="k">if</span> <span class="n">source</span> <span class="o">==</span> <span class="mi">0</span> <span class="ow">and</span> <span class="n">frame_count</span> <span class="o">&gt;</span> <span class="mi">2</span> <span class="o">**</span> <span class="mi">30</span><span class="p">:</span>
+                    <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">status</span> <span class="o">!=</span> <span class="bp">self</span><span class="o">.</span><span class="n">STATUS</span><span class="p">[</span><span class="s1">&#39;BAD&#39;</span><span class="p">]:</span>
+                        <span class="bp">self</span><span class="o">.</span><span class="n">status</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">STATUS</span><span class="p">[</span><span class="s1">&#39;NEUTRAL&#39;</span><span class="p">]</span>
+
+                    <span class="bp">self</span><span class="o">.</span><span class="n">msg</span> <span class="o">+=</span> <span class="sa">f</span><span class="s1">&#39;A message outgoing from the coordinator was sent with a frame counter larger than 2^(30) and key was not switched. This is only a problem if coordinator does not have RTC. (frame count: </span><span class="si">{</span><span class="n">frame_count</span><span class="si">}</span><span class="s1">) &#39;</span>
+
+        <span class="c1"># check if packet is not a switch key</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">pkt</span><span class="o">.</span><span class="n">haslayer</span><span class="p">(</span><span class="n">ZigbeeAppCommandPayload</span><span class="p">)</span> <span class="ow">or</span> <span class="n">pkt</span><span class="o">.</span><span class="n">getlayer</span><span class="p">(</span><span class="n">ZigbeeAppCommandPayload</span><span class="p">)</span><span class="o">.</span><span class="n">cmd_identifier</span> <span class="o">!=</span> <span class="mi">9</span><span class="p">:</span>
+            <span class="n">start_time</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">start_time</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">switch_key_last</span> <span class="ow">is</span> <span class="kc">None</span> <span class="k">else</span> <span class="bp">self</span><span class="o">.</span><span class="n">switch_key_last</span>
+            <span class="c1"># key should be switched at least once a year</span>
+            <span class="k">if</span> <span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span> <span class="o">-</span> <span class="n">start_time</span> <span class="o">&gt;</span> <span class="n">timedelta</span><span class="p">(</span><span class="n">days</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">DAYS_IN_YEAR</span><span class="p">):</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">status</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">STATUS</span><span class="p">[</span><span class="s1">&#39;BAD&#39;</span><span class="p">]</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">msg</span> <span class="o">+=</span> <span class="s1">&#39;A key was not updated in over a year. &#39;</span>
+
+            <span class="k">return</span>
+
+        <span class="c1"># key should be switched once a month tops</span>
+        <span class="c1"># compared to 2 to allow for key switch using two consecutive switch key commands</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">switch_key_count</span> <span class="o">&gt;=</span> <span class="mi">2</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">switch_key_last</span> <span class="o">&lt;=</span> <span class="n">timedelta</span><span class="p">(</span><span class="n">days</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">DAYS_IN_MONTH</span><span class="p">):</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">status</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">STATUS</span><span class="p">[</span><span class="s1">&#39;BAD&#39;</span><span class="p">]</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">msg</span> <span class="o">+=</span> <span class="sa">f</span><span class="s1">&#39;A key was changed more than once in the last </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">DAYS_IN_MONTH</span><span class="si">}</span><span class="s1"> days. &#39;</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">switch_key_count</span> <span class="o">=</span> <span class="mi">0</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">switch_key_count</span> <span class="o">+=</span> <span class="mi">1</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">switch_key_last</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span></div>
+
+<div class="viewcode-block" id="SwitchKey.print_report"><a class="viewcode-back" href="../../../zigcheck.testers.html#zigcheck.testers.switchkey.SwitchKey.print_report">[docs]</a>    <span class="k">def</span> <span class="nf">print_report</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Calls the __print_report_format function with appropriate status and message.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">status</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">switch_key_count</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">status</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">STATUS</span><span class="p">[</span><span class="s1">&#39;GOOD&#39;</span><span class="p">]</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">msg</span> <span class="o">=</span> <span class="s1">&#39;No problem was found while using switch key command.&#39;</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">status</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">STATUS</span><span class="p">[</span><span class="s1">&#39;NEUTRAL&#39;</span><span class="p">]</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">msg</span> <span class="o">=</span> <span class="s1">&#39;No switch key command was sent to determine its correct use.&#39;</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">print_report_format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">status</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">msg</span><span class="p">)</span></div></div>
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, Tomáš Rosenbaum.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

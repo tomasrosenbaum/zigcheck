@@ -1,0 +1,39 @@
+zigcheck package
+================
+
+Subpackages
+-----------
+
+.. toctree::
+   :maxdepth: 4
+
+   zigcheck.devices
+   zigcheck.testers
+   zigcheck.tools
+
+Submodules
+----------
+
+zigcheck.main module
+--------------------
+
+.. automodule:: zigcheck.main
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+zigcheck.testsuite module
+-------------------------
+
+.. automodule:: zigcheck.testsuite
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+Module contents
+---------------
+
+.. automodule:: zigcheck
+   :members:
+   :undoc-members:
+   :show-inheritance:

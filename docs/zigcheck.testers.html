@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>zigcheck.testers package &mdash; ZigCheck 0.1 documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/sphinx_highlight.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="zigcheck.tools package" href="zigcheck.tools.html" />
+    <link rel="prev" title="zigcheck.devices package" href="zigcheck.devices.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            ZigCheck
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="modules.html">app</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="zigcheck.html">zigcheck package</a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="zigcheck.html#subpackages">Subpackages</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="zigcheck.devices.html">zigcheck.devices package</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">zigcheck.testers package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="zigcheck.tools.html">zigcheck.tools package</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="zigcheck.html#submodules">Submodules</a></li>
+<li class="toctree-l3"><a class="reference internal" href="zigcheck.html#zigcheck-main-module">zigcheck.main module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="zigcheck.html#module-zigcheck.testsuite">zigcheck.testsuite module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="zigcheck.html#module-zigcheck">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">ZigCheck</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="modules.html">app</a></li>
+          <li class="breadcrumb-item"><a href="zigcheck.html">zigcheck package</a></li>
+      <li class="breadcrumb-item active">zigcheck.testers package</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/zigcheck.testers.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="zigcheck-testers-package">
+<h1>zigcheck.testers package<a class="headerlink" href="#zigcheck-testers-package" title="Permalink to this heading"></a></h1>
+<section id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this heading"></a></h2>
+</section>
+<section id="module-zigcheck.testers.keytester">
+<span id="zigcheck-testers-keytester-module"></span><h2>zigcheck.testers.keytester module<a class="headerlink" href="#module-zigcheck.testers.keytester" title="Permalink to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="zigcheck.testers.keytester.KeyTester">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">zigcheck.testers.keytester.</span></span><span class="sig-name descname"><span class="pre">KeyTester</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">config</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/zigcheck/testers/keytester.html#KeyTester"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#zigcheck.testers.keytester.KeyTester" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#zigcheck.testers.tester.Tester" title="zigcheck.testers.tester.Tester"><code class="xref py py-class docutils literal notranslate"><span class="pre">Tester</span></code></a></p>
+<p>Tests usage of well-known keys.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="zigcheck.testers.keytester.KeyTester.LINK_KEYS">
+<span class="sig-name descname"><span class="pre">LINK_KEYS</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{b'ZigBeeAlliance09'}</span></em><a class="headerlink" href="#zigcheck.testers.keytester.KeyTester.LINK_KEYS" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="zigcheck.testers.keytester.KeyTester.NWK_KEYS">
+<span class="sig-name descname"><span class="pre">NWK_KEYS</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{b'\x01\x03\x05\x07\t\x0b\r\x0f\x00\x02\x04\x06\x08\n\x0c\r',</span> <span class="pre">b'\x07\x03\x05\x07\t\x0b\r\x0f\x00\x02\x04\x06\x08\x0b\x0c\r'}</span></em><a class="headerlink" href="#zigcheck.testers.keytester.KeyTester.NWK_KEYS" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="zigcheck.testers.keytester.KeyTester.print_report">
+<span class="sig-name descname"><span class="pre">print_report</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/zigcheck/testers/keytester.html#KeyTester.print_report"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#zigcheck.testers.keytester.KeyTester.print_report" title="Permalink to this definition"></a></dt>
+<dd><p>Calls the __print_report_format function with appropriate status and message.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="zigcheck.testers.keytester.KeyTester.recv">
+<span class="sig-name descname"><span class="pre">recv</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pkt</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/zigcheck/testers/keytester.html#KeyTester.recv"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#zigcheck.testers.keytester.KeyTester.recv" title="Permalink to this definition"></a></dt>
+<dd><p>Process incoming packet.
+Determines whether security is used and tries to decrypt the package using the well-known keys.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>pkt (Packet): packet to process</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-zigcheck.testers.macsecurity">
+<span id="zigcheck-testers-macsecurity-module"></span><h2>zigcheck.testers.macsecurity module<a class="headerlink" href="#module-zigcheck.testers.macsecurity" title="Permalink to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="zigcheck.testers.macsecurity.MacSecurity">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">zigcheck.testers.macsecurity.</span></span><span class="sig-name descname"><span class="pre">MacSecurity</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">config</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/zigcheck/testers/macsecurity.html#MacSecurity"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#zigcheck.testers.macsecurity.MacSecurity" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#zigcheck.testers.tester.Tester" title="zigcheck.testers.tester.Tester"><code class="xref py py-class docutils literal notranslate"><span class="pre">Tester</span></code></a></p>
+<p>Tests whether communication uses MAC encryption.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="zigcheck.testers.macsecurity.MacSecurity.STATUS_THRESHOLD">
+<span class="sig-name descname"><span class="pre">STATUS_THRESHOLD</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">0.5</span></em><a class="headerlink" href="#zigcheck.testers.macsecurity.MacSecurity.STATUS_THRESHOLD" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="zigcheck.testers.macsecurity.MacSecurity.print_report">
+<span class="sig-name descname"><span class="pre">print_report</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/zigcheck/testers/macsecurity.html#MacSecurity.print_report"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#zigcheck.testers.macsecurity.MacSecurity.print_report" title="Permalink to this definition"></a></dt>
+<dd><p>Calls the __print_report_format function with appropriate status and message.
+The status is determined by comparing the share of secured and unsecured packet to the threshold.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="zigcheck.testers.macsecurity.MacSecurity.recv">
+<span class="sig-name descname"><span class="pre">recv</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pkt</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/zigcheck/testers/macsecurity.html#MacSecurity.recv"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#zigcheck.testers.macsecurity.MacSecurity.recv" title="Permalink to this definition"></a></dt>
+<dd><p>Process incoming packet.
+Determines whether security is used or not. Adds a security header if Scapy doesn’t automatically create one.
+Counts number of secured/integrity-only/unsecured packets.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>pkt (Packet): packet to process</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-zigcheck.testers.noncereuse">
+<span id="zigcheck-testers-noncereuse-module"></span><h2>zigcheck.testers.noncereuse module<a class="headerlink" href="#module-zigcheck.testers.noncereuse" title="Permalink to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="zigcheck.testers.noncereuse.NonceReuse">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">zigcheck.testers.noncereuse.</span></span><span class="sig-name descname"><span class="pre">NonceReuse</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">config</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/zigcheck/testers/noncereuse.html#NonceReuse"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#zigcheck.testers.noncereuse.NonceReuse" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#zigcheck.testers.tester.Tester" title="zigcheck.testers.tester.Tester"><code class="xref py py-class docutils literal notranslate"><span class="pre">Tester</span></code></a></p>
+<p>Tests if the communication uses encryption in TSCH mode.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="zigcheck.testers.noncereuse.NonceReuse.print_report">
+<span class="sig-name descname"><span class="pre">print_report</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/zigcheck/testers/noncereuse.html#NonceReuse.print_report"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#zigcheck.testers.noncereuse.NonceReuse.print_report" title="Permalink to this definition"></a></dt>
+<dd><p>Calls the __print_report_format function with appropriate status and message.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="zigcheck.testers.noncereuse.NonceReuse.recv">
+<span class="sig-name descname"><span class="pre">recv</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pkt</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/zigcheck/testers/noncereuse.html#NonceReuse.recv"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#zigcheck.testers.noncereuse.NonceReuse.recv" title="Permalink to this definition"></a></dt>
+<dd><p>Process incoming packet.
+Determines whether the packet is encrypted on MAC layer and checks the ‘ASN in nonce’ flag</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>pkt (Packet): packet to process</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-zigcheck.testers.printer">
+<span id="zigcheck-testers-printer-module"></span><h2>zigcheck.testers.printer module<a class="headerlink" href="#module-zigcheck.testers.printer" title="Permalink to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="zigcheck.testers.printer.Printer">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">zigcheck.testers.printer.</span></span><span class="sig-name descname"><span class="pre">Printer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">config</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/zigcheck/testers/printer.html#Printer"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#zigcheck.testers.printer.Printer" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#zigcheck.testers.tester.Tester" title="zigcheck.testers.tester.Tester"><code class="xref py py-class docutils literal notranslate"><span class="pre">Tester</span></code></a></p>
+<p>Pseudo-test that allows printing of the captured communication.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="zigcheck.testers.printer.Printer.print_report">
+<span class="sig-name descname"><span class="pre">print_report</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/zigcheck/testers/printer.html#Printer.print_report"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#zigcheck.testers.printer.Printer.print_report" title="Permalink to this definition"></a></dt>
+<dd><p>Prints all the captured messages.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="zigcheck.testers.printer.Printer.recv">
+<span class="sig-name descname"><span class="pre">recv</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pkt</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/zigcheck/testers/printer.html#Printer.recv"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#zigcheck.testers.printer.Printer.recv" title="Permalink to this definition"></a></dt>
+<dd><p>Process incoming packet.
+Determines whether the packet is IEEE802.15.4-only and saves it for later printing.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>pkt (Packet): packet to process</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-zigcheck.testers.switchkey">
+<span id="zigcheck-testers-switchkey-module"></span><h2>zigcheck.testers.switchkey module<a class="headerlink" href="#module-zigcheck.testers.switchkey" title="Permalink to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="zigcheck.testers.switchkey.SwitchKey">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">zigcheck.testers.switchkey.</span></span><span class="sig-name descname"><span class="pre">SwitchKey</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">config</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/zigcheck/testers/switchkey.html#SwitchKey"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#zigcheck.testers.switchkey.SwitchKey" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#zigcheck.testers.tester.Tester" title="zigcheck.testers.tester.Tester"><code class="xref py py-class docutils literal notranslate"><span class="pre">Tester</span></code></a></p>
+<p>Tests the correct use of the switch key command as per ZigBee specification.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="zigcheck.testers.switchkey.SwitchKey.DAYS_IN_MONTH">
+<span class="sig-name descname"><span class="pre">DAYS_IN_MONTH</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">30</span></em><a class="headerlink" href="#zigcheck.testers.switchkey.SwitchKey.DAYS_IN_MONTH" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="zigcheck.testers.switchkey.SwitchKey.DAYS_IN_YEAR">
+<span class="sig-name descname"><span class="pre">DAYS_IN_YEAR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">365</span></em><a class="headerlink" href="#zigcheck.testers.switchkey.SwitchKey.DAYS_IN_YEAR" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="zigcheck.testers.switchkey.SwitchKey.print_report">
+<span class="sig-name descname"><span class="pre">print_report</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/zigcheck/testers/switchkey.html#SwitchKey.print_report"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#zigcheck.testers.switchkey.SwitchKey.print_report" title="Permalink to this definition"></a></dt>
+<dd><p>Calls the __print_report_format function with appropriate status and message.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="zigcheck.testers.switchkey.SwitchKey.recv">
+<span class="sig-name descname"><span class="pre">recv</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pkt</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/zigcheck/testers/switchkey.html#SwitchKey.recv"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#zigcheck.testers.switchkey.SwitchKey.recv" title="Permalink to this definition"></a></dt>
+<dd><p>Process incoming packet.
+Determines whether the packet is as switch key command and checks its correct usage.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>pkt (Packet): packet to process</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-zigcheck.testers.tester">
+<span id="zigcheck-testers-tester-module"></span><h2>zigcheck.testers.tester module<a class="headerlink" href="#module-zigcheck.testers.tester" title="Permalink to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="zigcheck.testers.tester.Tester">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">zigcheck.testers.tester.</span></span><span class="sig-name descname"><span class="pre">Tester</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">config</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/zigcheck/testers/tester.html#Tester"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#zigcheck.testers.tester.Tester" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">ABC</span></code></p>
+<p>Abstract class representing a tester.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="zigcheck.testers.tester.Tester.STATUS">
+<span class="sig-name descname"><span class="pre">STATUS</span></span><a class="headerlink" href="#zigcheck.testers.tester.Tester.STATUS" title="Permalink to this definition"></a></dt>
+<dd><p>alias of <code class="xref py py-class docutils literal notranslate"><span class="pre">status</span></code></p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="zigcheck.testers.tester.Tester.print_report">
+<em class="property"><span class="pre">abstract</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">print_report</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/zigcheck/testers/tester.html#Tester.print_report"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#zigcheck.testers.tester.Tester.print_report" title="Permalink to this definition"></a></dt>
+<dd><p>Print report of the test outcome.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="zigcheck.testers.tester.Tester.print_report_format">
+<span class="sig-name descname"><span class="pre">print_report_format</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">status</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">msg</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/zigcheck/testers/tester.html#Tester.print_report_format"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#zigcheck.testers.tester.Tester.print_report_format" title="Permalink to this definition"></a></dt>
+<dd><p>Print message with status with color formatting.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>status (Enum): status of the test
+msg (string): message to print</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="zigcheck.testers.tester.Tester.recv">
+<em class="property"><span class="pre">abstract</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">recv</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pkt</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/zigcheck/testers/tester.html#Tester.recv"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#zigcheck.testers.tester.Tester.recv" title="Permalink to this definition"></a></dt>
+<dd><p>Process incoming packet.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>pkt (Packet): packet to process</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-zigcheck.testers.transportkey">
+<span id="zigcheck-testers-transportkey-module"></span><h2>zigcheck.testers.transportkey module<a class="headerlink" href="#module-zigcheck.testers.transportkey" title="Permalink to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="zigcheck.testers.transportkey.TransportKey">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">zigcheck.testers.transportkey.</span></span><span class="sig-name descname"><span class="pre">TransportKey</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">config</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/zigcheck/testers/transportkey.html#TransportKey"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#zigcheck.testers.transportkey.TransportKey" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#zigcheck.testers.tester.Tester" title="zigcheck.testers.tester.Tester"><code class="xref py py-class docutils literal notranslate"><span class="pre">Tester</span></code></a></p>
+<p>Tests how the transport key command is used.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="zigcheck.testers.transportkey.TransportKey.WELL_KNOWN_LINK_KEY">
+<span class="sig-name descname"><span class="pre">WELL_KNOWN_LINK_KEY</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">b'ZigBeeAlliance09'</span></em><a class="headerlink" href="#zigcheck.testers.transportkey.TransportKey.WELL_KNOWN_LINK_KEY" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="zigcheck.testers.transportkey.TransportKey.print_report">
+<span class="sig-name descname"><span class="pre">print_report</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/zigcheck/testers/transportkey.html#TransportKey.print_report"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#zigcheck.testers.transportkey.TransportKey.print_report" title="Permalink to this definition"></a></dt>
+<dd><p>Calls the __print_report_format function with appropriate status and message.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="zigcheck.testers.transportkey.TransportKey.recv">
+<span class="sig-name descname"><span class="pre">recv</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pkt</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/zigcheck/testers/transportkey.html#TransportKey.recv"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#zigcheck.testers.transportkey.TransportKey.recv" title="Permalink to this definition"></a></dt>
+<dd><p>Process incoming packet.
+Tests whether and how encrypted the packet is. Checks if the message is sent as unicast.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>pkt (Packet): packet to process</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-zigcheck.testers">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-zigcheck.testers" title="Permalink to this heading"></a></h2>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="zigcheck.devices.html" class="btn btn-neutral float-left" title="zigcheck.devices package" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="zigcheck.tools.html" class="btn btn-neutral float-right" title="zigcheck.tools package" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, Tomáš Rosenbaum.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>zigcheck.testsuite &mdash; ZigCheck 0.1 documentation</title>
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/sphinx_highlight.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            ZigCheck
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../modules.html">app</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">ZigCheck</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../index.html">Module code</a></li>
+      <li class="breadcrumb-item active">zigcheck.testsuite</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Source code for zigcheck.testsuite</h1><div class="highlight"><pre>
+<span></span><span class="kn">import</span> <span class="nn">click</span>
+<span class="kn">from</span> <span class="nn">scapy.all</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="kn">from</span> <span class="nn">scapy.layers.dot15d4</span> <span class="kn">import</span> <span class="n">Dot15d4Data</span><span class="p">,</span> <span class="n">Dot15d4Cmd</span>
+
+<span class="kn">from</span> <span class="nn">zigcheck.testers.printer</span> <span class="kn">import</span> <span class="n">Printer</span>
+
+
+<div class="viewcode-block" id="TestSuite"><a class="viewcode-back" href="../../zigcheck.html#zigcheck.testsuite.TestSuite">[docs]</a><span class="k">class</span> <span class="nc">TestSuite</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Represents testing environment.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">AVAILABLE_TESTERS</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;MAC_SECURITY&#39;</span><span class="p">:</span> <span class="s1">&#39;MacSecurity&#39;</span><span class="p">,</span> <span class="s1">&#39;NONCE_REUSE&#39;</span><span class="p">:</span> <span class="s1">&#39;NonceReuse&#39;</span><span class="p">,</span> <span class="s1">&#39;TEST_KEY&#39;</span><span class="p">:</span> <span class="s1">&#39;KeyTester&#39;</span><span class="p">,</span>
+                         <span class="s1">&#39;TRANSPORT_KEY&#39;</span><span class="p">:</span> <span class="s1">&#39;TransportKey&#39;</span><span class="p">,</span> <span class="s1">&#39;SWITCH_KEY&#39;</span><span class="p">:</span> <span class="s1">&#39;SwitchKey&#39;</span><span class="p">,</span> <span class="p">}</span>
+    <span class="n">AVAILABLE_DEVICES</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;CC2531&#39;</span><span class="p">,</span> <span class="s1">&#39;Offline&#39;</span><span class="p">}</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">tests</span><span class="p">,</span> <span class="n">printer</span><span class="p">,</span> <span class="n">device</span><span class="p">,</span> <span class="n">pan_id</span><span class="p">,</span> <span class="n">config</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Initiates testing class.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            tests (list): array of names of tests to perform</span>
+<span class="sd">            printer (bool): whether to print captured packets or not</span>
+<span class="sd">            device (string): name of device to use for sniffing</span>
+<span class="sd">            pan_id (int|None): PAN ID to filter packets by</span>
+<span class="sd">            config (ConfigReader): complete configuration</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">testers</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">test</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">AVAILABLE_TESTERS</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">test</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">tests</span><span class="p">:</span>
+                <span class="k">continue</span>
+
+            <span class="n">class_name</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">AVAILABLE_TESTERS</span><span class="p">[</span><span class="n">test</span><span class="p">]</span>
+            <span class="c1"># import and create new tester class</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">testers</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>
+                <span class="nb">getattr</span><span class="p">(</span><span class="n">importlib</span><span class="o">.</span><span class="n">import_module</span><span class="p">(</span><span class="s1">&#39;.&#39;</span> <span class="o">+</span> <span class="n">class_name</span><span class="o">.</span><span class="n">lower</span><span class="p">(),</span> <span class="s1">&#39;zigcheck.testers&#39;</span><span class="p">),</span> <span class="n">class_name</span><span class="p">)(</span><span class="n">config</span><span class="p">))</span>
+
+        <span class="k">if</span> <span class="n">printer</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">testers</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">Printer</span><span class="p">(</span><span class="n">config</span><span class="p">))</span>
+
+        <span class="k">if</span> <span class="n">device</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">AVAILABLE_DEVICES</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">IOError</span><span class="p">(</span><span class="s1">&#39;Invalid device was provided.&#39;</span><span class="p">)</span>
+
+        <span class="c1"># import and create new device class</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">device</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">importlib</span><span class="o">.</span><span class="n">import_module</span><span class="p">(</span><span class="s1">&#39;.&#39;</span> <span class="o">+</span> <span class="n">device</span><span class="o">.</span><span class="n">lower</span><span class="p">(),</span> <span class="s1">&#39;zigcheck.devices&#39;</span><span class="p">),</span> <span class="n">device</span><span class="p">)(</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">handle_packet</span><span class="p">,</span> <span class="n">config</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">pan_id</span> <span class="o">=</span> <span class="n">pan_id</span>
+
+<div class="viewcode-block" id="TestSuite.start"><a class="viewcode-back" href="../../zigcheck.html#zigcheck.testsuite.TestSuite.start">[docs]</a>    <span class="k">def</span> <span class="nf">start</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Starts the testing process.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">device</span><span class="o">.</span><span class="n">start</span><span class="p">()</span></div>
+
+<div class="viewcode-block" id="TestSuite.stop"><a class="viewcode-back" href="../../zigcheck.html#zigcheck.testsuite.TestSuite.stop">[docs]</a>    <span class="k">def</span> <span class="nf">stop</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Stops the testing process and prints report of all used testers.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">device</span><span class="o">.</span><span class="n">stop</span><span class="p">()</span>
+        <span class="n">click</span><span class="o">.</span><span class="n">echo</span><span class="p">()</span>
+        <span class="k">for</span> <span class="n">tester</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">testers</span><span class="p">:</span>
+            <span class="n">click</span><span class="o">.</span><span class="n">echo</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">tester</span><span class="si">}</span><span class="s1">:&#39;</span><span class="p">)</span>
+            <span class="n">tester</span><span class="o">.</span><span class="n">print_report</span><span class="p">()</span>
+            <span class="n">click</span><span class="o">.</span><span class="n">echo</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span> <span class="o">+</span> <span class="p">(</span><span class="s1">&#39;-&#39;</span> <span class="o">*</span> <span class="mi">100</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="TestSuite.handle_packet"><a class="viewcode-back" href="../../zigcheck.html#zigcheck.testsuite.TestSuite.handle_packet">[docs]</a>    <span class="k">def</span> <span class="nf">handle_packet</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">pkt</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">            Checks if packet is sent within the specified PAN and forwards it to all testers.</span>
+
+<span class="sd">            Args:</span>
+<span class="sd">                pkt (Packet): packet captured by the device</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">pan_id</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">pkt</span><span class="o">.</span><span class="n">haslayer</span><span class="p">(</span><span class="n">Dot15d4Data</span><span class="p">):</span>
+                <span class="n">subpkt</span> <span class="o">=</span> <span class="n">pkt</span><span class="o">.</span><span class="n">getlayer</span><span class="p">(</span><span class="n">Dot15d4Data</span><span class="p">)</span>
+            <span class="k">elif</span> <span class="n">pkt</span><span class="o">.</span><span class="n">haslayer</span><span class="p">(</span><span class="n">Dot15d4Cmd</span><span class="p">):</span>
+                <span class="n">subpkt</span> <span class="o">=</span> <span class="n">pkt</span><span class="o">.</span><span class="n">getlayer</span><span class="p">(</span><span class="n">Dot15d4Cmd</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">subpkt</span> <span class="o">=</span> <span class="kc">None</span>
+
+            <span class="c1"># check if pkt is sent within the specified PAN</span>
+            <span class="k">if</span> <span class="n">subpkt</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">subpkt</span><span class="o">.</span><span class="n">dest_panid</span> <span class="o">!=</span> <span class="bp">self</span><span class="o">.</span><span class="n">pan_id</span> <span class="ow">and</span> <span class="n">subpkt</span><span class="o">.</span><span class="n">src_panid</span> <span class="o">!=</span> <span class="bp">self</span><span class="o">.</span><span class="n">pan_id</span><span class="p">:</span>
+                <span class="k">return</span>
+
+        <span class="k">for</span> <span class="n">tester</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">testers</span><span class="p">:</span>
+            <span class="n">tester</span><span class="o">.</span><span class="n">recv</span><span class="p">(</span><span class="n">pkt</span><span class="p">)</span></div></div>
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, Tomáš Rosenbaum.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

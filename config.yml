@@ -1,0 +1,38 @@
+# which tests to perform, options: MAC_SECURITY, NONCE_REUSE, TEST_KEY, SWITCH_KEY, TRANSPORT_KEY
+tests:
+  - MAC_SECURITY
+  - NONCE_REUSE
+  - TEST_KEY
+  - SWITCH_KEY
+  - TRANSPORT_KEY
+  
+# whether to print captured packets, options: on/off
+print: off
+
+# device used for sniffing, options: CC2531/Offline
+device: CC2531
+
+# how long (in seconds) the scanning should take, non-positive values means infinite
+stop_after: 10
+
+# which IEEE channel to sniff on, options: 11-26
+channel: 11
+
+# PAN ID to filter traffic by, set to 'null' to disable filtering
+pan_id: 6754
+
+# configuration for all devices
+devices:
+  Offline:
+    # file to read packets from
+    file: capture.pcap
+    
+# configuration for all tests
+testers:
+  MAC_SECURITY:
+    # threshold for determining the outcome of the test
+    status_threshold: 0.5
+  PRINTER:
+    # whether to also print IEEE-only packets
+    print_ieee: off
+
