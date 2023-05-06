@@ -21,3 +21,6 @@ $ zigcheck
 ```
 
 Use ``zigcheck --help`` for more information.
+
+## Configuration
+You can update the app's configuration by updating the ``config.yml`` file or by specifying command line options.
