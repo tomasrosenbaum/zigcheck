@@ -5,5 +5,19 @@ Python application for security analysis of ZigBee networks. This appliaction ut
 ```console
 $ git clone https://github.com/tomasrosenbaum/zigcheck.git
 $ cd zigcheck
+$ chmod +x install.sh
 $ ./install.sh
 ```
+
+## Usage
+Activate Python virtual environment.
+```console
+$ source venv/bin/activate
+```
+
+Now you can start ZigCheck.
+```console
+$ zigcheck
+```
+
+Use ``zigcheck --help`` for more information.
