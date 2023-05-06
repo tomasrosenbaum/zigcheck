@@ -41,7 +41,11 @@ class CC2531(Device):
             err = self.whsniff.communicate()[1].decode()
             # get the name of CC2531 usb
             device = err[err.find(self.ERROR_MSG) + len(self.ERROR_MSG):].split(',')[0]
-            raise IOError(f'Unable to launch whsniff.\nTry: sudo chown {getpass.getuser()} {device}')
+            msg = 'Unable to launch whsniff.'
+            if device:
+                msg += f' Try: sudo chown {getpass.getuser()} {device}'
+                
+            raise IOError(msg)
 
         self.sniffer = AsyncSniffer(offline=self.whsniff.stdout, prn=handler, store=False)
 
