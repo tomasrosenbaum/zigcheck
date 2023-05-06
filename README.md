@@ -3,7 +3,7 @@ Python application for security analysis of ZigBee networks. This appliaction ut
 
 ## Installation
 ```console
-git clone https://github.com/tomasrosenbaum/zigcheck.git
-cd zigcheck
-./install.sh
+$ git clone https://github.com/tomasrosenbaum/zigcheck.git
+$ cd zigcheck
+$ ./install.sh
 ```
