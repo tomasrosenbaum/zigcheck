@@ -36,8 +36,6 @@ class NonceReuse(Tester):
                 bytes(pkt.getlayer(Dot15d4AuxSecurityHeader)) == bytes.fromhex('0000000000'):
             return
 
-        click.echo(bytes(pkt.getlayer(Dot15d4AuxSecurityHeader)).hex())
-
         if self.asn is None:
             self.asn = False
 
